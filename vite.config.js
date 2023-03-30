@@ -1,4 +1,5 @@
 import { fileURLToPath, URL } from 'node:url'
+import legacy from '@vitejs/plugin-legacy'
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
@@ -7,10 +8,11 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   plugins: [
     vue(),
+    legacy({
+      targets: ['defaults, safari > 13, iOS > 12'],
+      modernPolyfills: true,
+    })
   ],
-  build: {
-    target: ['es2020', 'edge88', 'firefox78', 'chrome87', 'safari12']
-  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
