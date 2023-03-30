@@ -9,7 +9,7 @@ export default defineConfig({
   plugins: [
     vue(),
     legacy({
-      targets: ['defaults, safari > 13']
+      targets: ['defaults, safari > 13, iOS > 12']
     })
   ],
   resolve: {
